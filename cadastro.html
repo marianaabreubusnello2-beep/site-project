@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Moda & Mais</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .register-page {
+            width: min(520px, 100%);
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+        }
+
+        .register-page h1 {
+            margin-top: 0;
+            color: var(--dark);
+        }
+
+        .register-page form {
+            display: grid;
+            gap: 12px;
+        }
+
+        .register-page input {
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .register-page .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .success-message {
+            color: #0f766e;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-page">
+        <h1>Criar conta</h1>
+        <p>Cadastre-se para comprar na Moda & Mais.</p>
+        <form id="register-page-form">
+            <input type="text" id="register-name" placeholder="Seu nome" required>
+            <input type="email" id="register-email" placeholder="Seu e-mail" required>
+            <input type="password" id="register-password" placeholder="Crie uma senha" required>
+            <div class="actions">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <a href="index.html" class="btn btn-secondary">Voltar à loja</a>
+            </div>
+        </form>
+        <div id="register-message" class="success-message"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('register-page-form');
+        const message = document.getElementById('register-message');
+        const usersStorageKey = 'moda-e-mais-users';
+        const currentUserStorageKey = 'moda-e-mais-user';
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('register-name').value.trim();
+            const email = document.getElementById('register-email').value.trim();
+            const password = document.getElementById('register-password').value.trim();
+
+            if (!name || !email || !password) {
+                message.textContent = 'Preencha todos os campos para continuar.';
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem(usersStorageKey) || '[]');
+            const exists = users.some(user => user.email.toLowerCase() === email.toLowerCase());
+
+            if (exists) {
+                message.textContent = 'Este e-mail já está cadastrado.';
+                return;
+            }
+
+            users.push({ name, email, password });
+            localStorage.setItem(usersStorageKey, JSON.stringify(users));
+            localStorage.setItem(currentUserStorageKey, JSON.stringify({ name, email }));
+            form.reset();
+            message.textContent = 'Cadastro realizado com sucesso! Você já pode voltar à loja e comprar.';
+        });
+    </script>
+</body>
+</html>

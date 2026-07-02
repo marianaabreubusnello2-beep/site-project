@@ -1,15 +1,420 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Moda & Mais | Loja Online</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
-    <h1>Hello World!</h1>
-    <p>done remote</p>
-    <p>third amendment</p>
+    <header>
+        <div class="container nav">
+            <a href="#" class="logo">Moda & Mais</a>
+            <nav>
+                <a href="#categorias">Categorias</a>
+                <a href="#produtos">Produtos</a>
+                <a href="#sobre">Sobre</a>
+            </nav>
+            <a href="cadastro.html" class="btn btn-primary">Cadastrar-se</a>
+        </div>
+    </header>
 
+    <main class="container">
+        <section class="hero">
+            <div>
+                <h1>Estilo, conforto e novidades em um só lugar.</h1>
+                <p>Descubra roupas modernas, acessórios e produtos para o dia a dia com ofertas imperdíveis para toda a família.</p>
+                <div class="hero-actions">
+                    <a href="cadastro.html" class="btn btn-primary">Ver coleção</a>
+                    <a href="#categorias" class="btn btn-secondary">Explorar categorias</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <span class="tag">Novo lançamento</span>
+                <h3>Summer Essentials</h3>
+                <p>Peças leves, estampas modernas e muito conforto para os dias mais quentes.</p>
+                <ul>
+                    <li>Frete grátis acima de R$ 150</li>
+                    <li>Parcelamento em até 12x</li>
+                    <li>Trocas fáceis e rápidas</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="categorias">
+            <div class="section-title">
+                <h2>Categorias populares</h2>
+                <a href="#produtos" class="btn btn-secondary">Ver todos</a>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="icon">👕</div>
+                    <h3>Roupas</h3>
+                    <p>Camisas, calças, vestidos e muito mais para todos os estilos.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">👜</div>
+                    <h3>Acessórios</h3>
+                    <p>Bolsa, óculos, cintos e detalhes que valorizam seu visual.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">✨</div>
+                    <h3>Presentes</h3>
+                    <p>Itens especiais para presentear com elegância e praticidade.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="promo">
+            <div>
+                <h2>Semana da moda</h2>
+                <p>Ganhe 15% de desconto na sua primeira compra e aproveite frete grátis.</p>
+            </div>
+            <a href="#produtos" class="btn btn-secondary">Aproveitar oferta</a>
+        </section>
+
+        <section class="auth-card" aria-label="Cadastro para compras">
+            <h2 style="margin:0; color:var(--dark);">Cadastre-se para comprar</h2>
+            <p style="margin:0;">Crie sua conta ou entre com uma já existente para liberar o carrinho.</p>
+            <div class="auth-toggle">
+                <button type="button" class="auth-toggle-btn active" id="show-register">Criar conta</button>
+                <button type="button" class="auth-toggle-btn" id="show-login">Entrar</button>
+            </div>
+            <form id="register-form" class="auth-form">
+                <input type="text" id="register-name" placeholder="Seu nome" required>
+                <input type="email" id="register-email" placeholder="Seu e-mail" required>
+                <input type="password" id="register-password" placeholder="Crie uma senha" required>
+                <button type="submit" class="btn btn-primary full-width">Criar conta</button>
+            </form>
+            <form id="login-form" class="auth-form hidden">
+                <input type="email" id="login-email" placeholder="Seu e-mail" required>
+                <input type="password" id="login-password" placeholder="Sua senha" required>
+                <button type="submit" class="btn btn-primary full-width">Entrar</button>
+            </form>
+            <div id="auth-message" class="auth-message">Cadastre-se para ativar o carrinho e fazer compras.</div>
+            <button id="logout-btn" class="btn btn-secondary" style="display:none; width:max-content;">Sair da conta</button>
+        </section>
+
+        <section id="produtos">
+            <div class="section-title">
+                <h2>Destaques da semana</h2>
+                <span class="cart-count" id="cart-count-badge">0 itens</span>
+            </div>
+            <p id="purchase-note" class="purchase-note">Faça seu cadastro para ativar o carrinho e finalizar a compra.</p>
+            <div class="shop-layout">
+                <div class="products">
+                    <article class="product">
+                        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80" alt="Camisa casual masculina">
+                        <div class="product-info">
+                            <h3>Camisa Casual</h3>
+                            <p>Modelo confortável e moderno para o dia a dia.</p>
+                            <div class="price">R$ 89,90</div>
+                            <button class="btn btn-primary add-to-cart" data-name="Camisa Casual" data-price="89.90">Adicionar</button>
+                        </div>
+                    </article>
+                    <article class="product">
+                        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80" alt="Vestido feminino elegante">
+                        <div class="product-info">
+                            <h3>Vestido Elegante</h3>
+                            <p>Estilo sofisticado com caimento leve e feminino.</p>
+                            <div class="price">R$ 129,90</div>
+                            <button class="btn btn-primary add-to-cart" data-name="Vestido Elegante" data-price="129.90">Adicionar</button>
+                        </div>
+                    </article>
+                    <article class="product">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80" alt="Tênis esportivo">
+                        <div class="product-info">
+                            <h3>Tênis Esportivo</h3>
+                            <p>Conforto e performance para seu treino ou passeio.</p>
+                            <div class="price">R$ 199,90</div>
+                            <button class="btn btn-primary add-to-cart" data-name="Tênis Esportivo" data-price="199.90">Adicionar</button>
+                        </div>
+                    </article>
+                    <article class="product">
+                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Bolsa feminina">
+                        <div class="product-info">
+                            <h3>Bolsa Premium</h3>
+                            <p>Design moderno com espaço e organização para o seu dia.</p>
+                            <div class="price">R$ 159,90</div>
+                            <button class="btn btn-primary add-to-cart" data-name="Bolsa Premium" data-price="159.90">Adicionar</button>
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="cart" aria-label="Carrinho de compras">
+                    <div class="cart-header">
+                        <h3 style="margin:0;">Seu carrinho</h3>
+                        <span class="cart-count" id="cart-count">0 itens</span>
+                    </div>
+                    <div id="cart-items"></div>
+                    <div class="cart-summary">
+                        <div class="summary-row"><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div>
+                        <div class="summary-row"><span>Frete</span><strong>Grátis</strong></div>
+                        <div class="summary-row"><span>Total</span><strong id="total">R$ 0,00</strong></div>
+                    </div>
+                    <button class="btn btn-primary checkout-btn">Finalizar compra</button>
+                </aside>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <div class="cards">
+                <div class="card">
+                    <h3>Entrega rápida</h3>
+                    <p>Envio ágil para todo o Brasil com rastreamento em tempo real.</p>
+                </div>
+                <div class="card">
+                    <h3>Pagamento seguro</h3>
+                    <p>Ambientes protegidos com diversas opções de pagamento.</p>
+                </div>
+                <div class="card">
+                    <h3>Atendimento humano</h3>
+                    <p>Equipe preparada para ajudar você em cada etapa da compra.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Moda & Mais. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartCount = document.getElementById('cart-count');
+        const cartCountBadge = document.getElementById('cart-count-badge');
+        const subtotalEl = document.getElementById('subtotal');
+        const totalEl = document.getElementById('total');
+        const addButtons = document.querySelectorAll('.add-to-cart');
+        const checkoutBtn = document.querySelector('.checkout-btn');
+        const registerForm = document.getElementById('register-form');
+        const loginForm = document.getElementById('login-form');
+        const authMessage = document.getElementById('auth-message');
+        const logoutBtn = document.getElementById('logout-btn');
+        const purchaseNote = document.getElementById('purchase-note');
+        const showRegisterBtn = document.getElementById('show-register');
+        const showLoginBtn = document.getElementById('show-login');
+        const usersStorageKey = 'moda-e-mais-users';
+        const currentUserStorageKey = 'moda-e-mais-user';
+
+        let cart = [];
+        let currentUser = JSON.parse(localStorage.getItem(currentUserStorageKey) || 'null');
+        let authMode = 'register';
+
+        function formatCurrency(value) {
+            return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function getUsers() {
+            return JSON.parse(localStorage.getItem(usersStorageKey) || '[]');
+        }
+
+        function saveUsers(users) {
+            localStorage.setItem(usersStorageKey, JSON.stringify(users));
+        }
+
+        function setCurrentUser(user) {
+            currentUser = user;
+            if (user) {
+                localStorage.setItem(currentUserStorageKey, JSON.stringify(user));
+            } else {
+                localStorage.removeItem(currentUserStorageKey);
+            }
+        }
+
+        function setAuthMode(mode) {
+            authMode = mode;
+            const isRegister = mode === 'register';
+            registerForm.classList.toggle('hidden', !isRegister);
+            loginForm.classList.toggle('hidden', isRegister);
+            showRegisterBtn.classList.toggle('active', isRegister);
+            showLoginBtn.classList.toggle('active', !isRegister);
+        }
+
+        function updateAuthUi() {
+            const isLogged = Boolean(currentUser);
+            registerForm.classList.toggle('hidden', isLogged || authMode !== 'register');
+            loginForm.classList.toggle('hidden', isLogged || authMode !== 'login');
+            logoutBtn.style.display = isLogged ? 'inline-block' : 'none';
+            addButtons.forEach(button => {
+                button.disabled = !isLogged;
+            });
+            checkoutBtn.disabled = !isLogged;
+            checkoutBtn.textContent = isLogged ? 'Finalizar compra' : 'Cadastre-se para comprar';
+
+            if (isLogged) {
+                authMessage.innerHTML = `<strong>Olá, ${currentUser.name}!</strong> Sua conta está ativa para comprar.`;
+                purchaseNote.textContent = 'Sua conta está ativa. Você pode adicionar produtos ao carrinho.';
+            } else {
+                authMessage.textContent = 'Cadastre-se para ativar o carrinho e fazer compras.';
+                purchaseNote.textContent = 'Faça seu cadastro para ativar o carrinho e finalizar a compra.';
+            }
+        }
+
+        function renderCart() {
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<div class="empty-cart">Seu carrinho está vazio.</div>';
+                cartCount.textContent = '0 itens';
+                cartCountBadge.textContent = '0 itens';
+                subtotalEl.textContent = formatCurrency(0);
+                totalEl.textContent = formatCurrency(0);
+                return;
+            }
+
+            cartItemsContainer.innerHTML = '';
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+                const itemEl = document.createElement('div');
+                itemEl.className = 'cart-item';
+                itemEl.innerHTML = `
+                    <div>
+                        <strong>${item.name}</strong>
+                        <div>${formatCurrency(item.price)} cada</div>
+                        <div class="cart-controls">
+                            <button class="qty-btn" data-action="decrease" data-name="${item.name}">−</button>
+                            <span>${item.quantity}</span>
+                            <button class="qty-btn" data-action="increase" data-name="${item.name}">+</button>
+                        </div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div>${formatCurrency(item.price * item.quantity)}</div>
+                        <button class="remove-btn" data-name="${item.name}">Remover</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(itemEl);
+            });
+
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'itens'}`;
+            cartCountBadge.textContent = `${totalItems} ${totalItems === 1 ? 'item' : 'itens'}`;
+            subtotalEl.textContent = formatCurrency(subtotal);
+            totalEl.textContent = formatCurrency(subtotal);
+        }
+
+        addButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (!currentUser) {
+                    authMessage.textContent = 'Cadastre-se primeiro para adicionar produtos ao carrinho.';
+                    return;
+                }
+
+                const { name, price } = button.dataset;
+                const existing = cart.find(item => item.name === name);
+
+                if (existing) {
+                    existing.quantity += 1;
+                } else {
+                    cart.push({ name, price: Number(price), quantity: 1 });
+                }
+
+                renderCart();
+            });
+        });
+
+        cartItemsContainer.addEventListener('click', event => {
+            const button = event.target.closest('button');
+            if (!button) return;
+
+            const { action, name } = button.dataset;
+            const item = cart.find(product => product.name === name);
+            if (!item) return;
+
+            if (button.classList.contains('remove-btn')) {
+                cart = cart.filter(product => product.name !== name);
+            } else if (action === 'increase') {
+                item.quantity += 1;
+            } else if (action === 'decrease') {
+                item.quantity -= 1;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(product => product.name !== name);
+                }
+            }
+
+            renderCart();
+        });
+
+        registerForm.addEventListener('submit', event => {
+            event.preventDefault();
+            const name = document.getElementById('register-name').value.trim();
+            const email = document.getElementById('register-email').value.trim();
+            const password = document.getElementById('register-password').value.trim();
+
+            if (!name || !email || !password) {
+                authMessage.textContent = 'Preencha todos os campos para criar sua conta.';
+                return;
+            }
+
+            const users = getUsers();
+            const emailExists = users.some(user => user.email.toLowerCase() === email.toLowerCase());
+            if (emailExists) {
+                authMessage.textContent = 'Este e-mail já está cadastrado. Use outro ou entre na conta.';
+                return;
+            }
+
+            users.push({ name, email, password });
+            saveUsers(users);
+            setCurrentUser({ name, email });
+            registerForm.reset();
+            updateAuthUi();
+            authMessage.innerHTML = `<strong>Cadastro realizado!</strong> Você já pode comprar.`;
+        });
+
+        loginForm.addEventListener('submit', event => {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value.trim();
+
+            if (!email || !password) {
+                authMessage.textContent = 'Informe seu e-mail e senha para entrar.';
+                return;
+            }
+
+            const users = getUsers();
+            const user = users.find(item => item.email.toLowerCase() === email.toLowerCase());
+            if (!user || user.password !== password) {
+                authMessage.textContent = 'E-mail ou senha inválidos. Tente novamente.';
+                return;
+            }
+
+            setCurrentUser({ name: user.name, email: user.email });
+            loginForm.reset();
+            updateAuthUi();
+            authMessage.innerHTML = `<strong>Login realizado!</strong> Bem-vindo de volta.`;
+        });
+
+        logoutBtn.addEventListener('click', () => {
+            setCurrentUser(null);
+            cart = [];
+            renderCart();
+            updateAuthUi();
+            authMessage.textContent = 'Você saiu da conta. Faça login ou cadastre-se para comprar.';
+        });
+
+        checkoutBtn.addEventListener('click', () => {
+            if (!currentUser) {
+                authMessage.textContent = 'Cadastre-se para finalizar a compra.';
+                return;
+            }
+            if (cart.length === 0) {
+                authMessage.textContent = 'Adicione produtos ao carrinho antes de finalizar.';
+                return;
+            }
+
+            authMessage.innerHTML = `<strong>Pedido confirmado!</strong> Obrigado por comprar com a Moda & Mais.`;
+            cart = [];
+            renderCart();
+        });
+
+        showRegisterBtn.addEventListener('click', () => setAuthMode('register'));
+        showLoginBtn.addEventListener('click', () => setAuthMode('login'));
+
+        setAuthMode('register');
+        updateAuthUi();
+        renderCart();
+    </script>
 </body>
 </html>
